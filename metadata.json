@@ -1,0 +1,5 @@
+{
+  "name": "Age Calculator",
+  "description": "A modern and sleek age calculator that determines your age in years, months, and days. It also provides interesting statistics like your age in total days, weeks, hours, and counts down to your next birthday.",
+  "requestFramePermissions": []
+}
