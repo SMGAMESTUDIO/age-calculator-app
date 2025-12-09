@@ -26,7 +26,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(({ label, 
       <input
         ref={ref}
         type="tel"
-        className="w-full text-center bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-2xl font-bold p-3 rounded-lg border-2 border-transparent focus:border-indigo-500 focus:ring-0 transition"
+        className="w-full text-center bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white text-2xl font-bold p-3 rounded-lg border-2 border-transparent focus:border-indigo-500 focus:ring-0 transition focus:scale-105"
         {...props}
         onChange={handleChange}
         aria-label={label}

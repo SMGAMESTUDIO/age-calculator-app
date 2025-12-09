@@ -70,21 +70,21 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full flex flex-col items-center p-4 sm:p-6 transition-colors duration-300">
       <main className="w-full max-w-md mx-auto">
-        <header className="flex justify-between items-center mb-6">
+        <header className="flex justify-between items-center mb-6 opacity-0 animate-fade-in-down">
           <div>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Age Calculator</h1>
             <p className="text-slate-500 dark:text-slate-400">Enter your date of birth</p>
           </div>
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-yellow-300"
+            className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-yellow-300 transition-transform active:scale-90"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}
           </button>
         </header>
 
-        <div className="bg-white dark:bg-slate-800/60 rounded-2xl shadow-lg p-6 backdrop-blur-sm">
+        <div className="bg-white dark:bg-slate-800/60 rounded-2xl shadow-lg p-6 backdrop-blur-sm opacity-0 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <div className="mb-4">
             <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Date of Birth</span>
             <div className="flex items-center justify-between mt-2 gap-2 sm:gap-4">
@@ -99,7 +99,7 @@ const App: React.FC = () => {
           <button
             ref={calculateBtnRef}
             onClick={handleCalculate}
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold py-3 px-4 rounded-xl hover:opacity-90 transition-opacity duration-300 shadow-md"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold py-3 px-4 rounded-xl hover:opacity-90 transition-opacity duration-300 shadow-md transition-transform active:scale-95"
           >
             <CalendarIcon className="w-5 h-5" />
             Calculate Age
@@ -107,21 +107,21 @@ const App: React.FC = () => {
         </div>
 
         {ageResult && (
-          <div className="mt-8 animate-fade-in">
-            <div className="bg-white dark:bg-slate-800/60 rounded-2xl shadow-lg p-6 text-center">
+          <div className="mt-8">
+            <div className="bg-white dark:bg-slate-800/60 rounded-2xl shadow-lg p-6 text-center opacity-0 animate-pop-in" style={{ animationDelay: '100ms' }}>
               <span className="text-7xl font-bold text-slate-900 dark:text-white">{ageResult.years}</span>
               <p className="text-xl font-medium text-slate-700 dark:text-slate-300 mt-1">Years Old</p>
               <p className="text-slate-500 dark:text-slate-400 mt-1">{`${ageResult.months} months and ${ageResult.days} days`}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <ResultCard icon={<CalendarIcon/>} value={ageResult.totalDays.toLocaleString()} label="Total Days" className="from-pink-500 to-rose-500" />
-              <ResultCard icon={<ClockIcon/>} value={ageResult.totalWeeks.toLocaleString()} label="Total Weeks" className="from-cyan-400 to-blue-500" />
-              <ResultCard icon={<HeartIcon/>} value={ageResult.totalHours.toLocaleString()} label="Total Hours" className="from-emerald-400 to-teal-500" />
-              <ResultCard icon={<CakeIcon/>} value={ageResult.daysUntilNextBirthday.toLocaleString()} label="Days Next Birthday" className="from-amber-400 to-orange-500" />
+              <ResultCard icon={<CalendarIcon/>} value={ageResult.totalDays.toLocaleString()} label="Total Days" className="from-pink-500 to-rose-500 opacity-0 animate-pop-in" style={{ animationDelay: '200ms' }} />
+              <ResultCard icon={<ClockIcon/>} value={ageResult.totalWeeks.toLocaleString()} label="Total Weeks" className="from-cyan-400 to-blue-500 opacity-0 animate-pop-in" style={{ animationDelay: '300ms' }} />
+              <ResultCard icon={<HeartIcon/>} value={ageResult.totalHours.toLocaleString()} label="Total Hours" className="from-emerald-400 to-teal-500 opacity-0 animate-pop-in" style={{ animationDelay: '400ms' }} />
+              <ResultCard icon={<CakeIcon/>} value={ageResult.daysUntilNextBirthday.toLocaleString()} label="Days Next Birthday" className="from-amber-400 to-orange-500 opacity-0 animate-pop-in" style={{ animationDelay: '500ms' }} />
             </div>
             
-            <p className="text-center text-slate-500 dark:text-slate-400 mt-6">
+            <p className="text-center text-slate-500 dark:text-slate-400 mt-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
               Next birthday on {ageResult.nextBirthdayDate}
             </p>
           </div>

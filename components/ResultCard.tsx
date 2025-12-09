@@ -6,11 +6,12 @@ interface ResultCardProps {
   value: string;
   label: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export const ResultCard: React.FC<ResultCardProps> = ({ icon, value, label, className }) => {
+export const ResultCard: React.FC<ResultCardProps> = ({ icon, value, label, className, style }) => {
   return (
-    <div className={`bg-gradient-to-br ${className} p-4 rounded-2xl shadow-lg text-white`}>
+    <div className={`bg-gradient-to-br ${className} p-4 rounded-2xl shadow-lg text-white`} style={style}>
       <div className="flex items-center gap-3">
         <div className="bg-white/20 p-2 rounded-full">
           {icon}
